@@ -1,7 +1,9 @@
 import json
-from django.shortcuts import render
+# from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
+from rest_framework.views import APIView
+# from rest_framework import exceptions
 # Create your views here.
 
 # 定义视图函数，业务逻辑
@@ -17,6 +19,14 @@ class CbvView(View):
 
 
 
+class DogView(APIView):
+
+    def get(self,request,*args,**kwargs):
+        ret = {
+            'code':10000,
+            'msg':'hello world'
+        }
+        return HttpResponse(json.dumps(ret))
 
 
 
